@@ -4,7 +4,7 @@ import math
 ### App Setup
 app.background = 'black'
 app.stepsPerSecond = 60
-Label('Not to Scale!', 395, 395,
+Label('Not to Scale!', app.right - 5, app.bottom - 5,
     fill='white', align='bottom-right',
     size=10, opacity=50)
 
@@ -16,9 +16,9 @@ Circle(200, 200, 35, fill=gradient('darkRed', 'yellow'))
 
 ### Planet Generator
 def newPlt(x, r, c):
-    Circle(200, 200, x+r, fill=None,
+    Circle(app.centerX, app.centerY, x+r, fill=None,
         border='lightCyan', borderWidth=r*2, opacity=10)
-    return Circle(x + 200, 200, r, fill=c)
+    return Circle(x + app.centerX, app.centerY, r, fill=c)
 
 planets = {
     "mercury": newPlt(42, 3, 'grey'),
@@ -34,9 +34,9 @@ planets = {
 
 ### Setup Speed and Shadow
 for p in planets.values():
-    p.distFromSun = p.centerX - 200
+    p.distFromSun = p.centerX - app.centerX
     p.speed = math.pow(-150, 9)/math.pow(p.centerX, 8)
-    p.shadow = Line(200, 200, p.centerX, p.centerY,
+    p.shadow = Line(app.centerX, app.centerY, p.centerX, p.centerY,
         lineWidth=p.radius*2, opacity=50)
 
 ### Movement Handler
