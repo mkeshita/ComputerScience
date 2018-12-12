@@ -1,1 +1,1 @@
-![Preview](cs-academy-canvas.png "Preview"))
+![Preview Image](cs-academy-canvas.png "Preview")
