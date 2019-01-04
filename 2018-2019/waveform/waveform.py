@@ -7,7 +7,10 @@ for i in range(101):
         fill=gradient('black', 'yellow', 'red', start='bottom'),
         lineWidth=4, dashes=True))
     app.mem['num'] += 4
-    
+
 def onStep():
     for i in wave.children:
+        # i.x1 = randrange(400)
         i.y1 = randrange(400)
+        # i.x2 = randrange(400)
+        # i.y2 = randrange(400)
