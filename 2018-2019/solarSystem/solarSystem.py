@@ -10,9 +10,9 @@ Label('Not to Scale!', app.right - 5, app.bottom - 5,
 
 ### Star Generator
 stars = []
-for i in range(200):
+for i in range(250):
     stars.append(Circle(randrange(400), randrange(400), 1, fill='white'))
-Circle(200, 200, 35, fill=gradient('darkRed', 'yellow'))
+Circle(app.centerX, app.centerY, 35, fill=gradient('darkRed', 'yellow'))
 
 ### Planet Generator
 def newPlt(x, r, c):

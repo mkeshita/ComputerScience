@@ -1,5 +1,5 @@
-app.stepsPerSecond = 999999999
-s = 1; d = Circle(200, 200, 25, fill='purple')
+app.stepsPerSecond = 60
+s = 5; d = Circle(200, 200, 25, fill='purple')
 
 def onKeyHold(keys):
     # Movement Control
