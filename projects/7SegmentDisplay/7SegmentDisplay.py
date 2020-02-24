@@ -78,4 +78,4 @@ def onStep():
             except:
                 segments['seconds'][index].changeValue(None)
     else: for i in colon.children: i.opacity = 0
-    time += 1; l.value = f'Overflow: {(time>7200 and True or False)} Colon: {time % 2 == 1} Time: {time/2-0.5}'
+    time += 1; l.value = f'Overflow: {time>7200 and True or False} Colon: {time % 2 == 1} Time: {time/2-0.5}'
