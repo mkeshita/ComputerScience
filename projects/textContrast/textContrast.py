@@ -1,4 +1,4 @@
-app.background = rgb(153, 170, 181) # Discord Color Lol
+app.background = rgb(153, 170, 181)  # Discord Greyple Color Lol
 block = Rect(0, 0, 250, 150); block.centerX = app.centerX; block.centerY = app.centerY/2
 sampleTxt = Label('Sample Text', block.centerX, block.centerY, size=32)
 
@@ -38,10 +38,13 @@ def randomizeColor():
     def f(): return randrange(256)
     r = f(); g = f(); b = f()
     block.fill = rgb(r, g, b); sampleTxt.fill = textContrast(r, g, b)
-    sliders[0].children[1].centerY = getValue(sliders[0].children[0].top, sliders[0].children[0].bottom, getPercent(0, 255, r))
-    sliders[1].children[1].centerY = getValue(sliders[1].children[0].top, sliders[0].children[0].bottom, getPercent(0, 255, g))
-    sliders[2].children[1].centerY = getValue(sliders[2].children[0].top, sliders[0].children[0].bottom, getPercent(0, 255, b))
-    sliders[0].children[2].value = r; sliders[1].children[2].value = g; sliders[2].children[2].value = b
+    clrs = [r, g, b]
+    for itvl in range(3):
+        sliders[itvl].children[1].centerY = getValue(
+            sliders[itvl].children[0].top,
+            sliders[itvl].children[0].bottom,
+            getPercent(0, 255, clrs[itvl])
+        ); sliders[itvl].children[2].value = clrs[itvl]
 randomizeColor()
 
 ### Slider Limiter
@@ -58,9 +61,8 @@ def sliderMoved(i, y):
     i.children[2].value = cc
     if (i.children[0].fill == 'red'): block.fill = rgb(cc, block.fill.green, block.fill.blue)
     if (i.children[0].fill == 'green'): block.fill = rgb(block.fill.red, cc, block.fill.blue)
-    if (i.children[0].fill == 'blue'): block.fill = rgb(block.fill.red, block.fill.green ,cc)
+    if (i.children[0].fill == 'blue'): block.fill = rgb(block.fill.red, block.fill.green, cc)
     sampleTxt.fill = textContrast(block.fill.red, block.fill.green, block.fill.blue)
-
 
 def onMousePress(x, y):
     if (block.contains(x, y)): randomizeColor()
