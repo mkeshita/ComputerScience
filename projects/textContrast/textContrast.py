@@ -41,8 +41,8 @@ def randomizeColor():
     clrs = [r, g, b]
     for itvl in range(3):
         sliders[itvl].children[1].centerY = getValue(
-            sliders[itvl].children[0].top,
             sliders[itvl].children[0].bottom,
+            sliders[itvl].children[0].top,
             getPercent(0, 255, clrs[itvl])
         ); sliders[itvl].children[2].value = clrs[itvl]
 randomizeColor()
